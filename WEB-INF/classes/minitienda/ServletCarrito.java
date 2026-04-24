@@ -27,7 +27,7 @@ public class ServletCarrito extends HttpServlet {
           } catch (NumberFormatException e) {System.out.println("Índice inválido.");}
         }
       }
-      
+
       String nombrecd = request.getParameter("nombre");
       String cantidadstring = request.getParameter("cantidad");
       if (nombrecd != null && !nombrecd.trim().isEmpty() && cantidadstring != null){
@@ -41,6 +41,11 @@ public class ServletCarrito extends HttpServlet {
         } catch (NumberFormatException e) {System.out.println("La cantidad debe ser un número.");}
       } 
 
+      float total = 0.0f;
+      for (int i = 0; i < cds.size(); i++){
+        total += cds.get(i).getCantidad()*cds.get(i).getPrecio();
+      }
+      session.setAttribute("total", total);
       
     RequestDispatcher dispatcher = request.getRequestDispatcher("/carrito.jsp");
     dispatcher.forward(request, response);

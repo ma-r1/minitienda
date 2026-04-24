@@ -1,3 +1,13 @@
+<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
+
+<%
+  Float total = (Float) session.getAttribute("total");
+  if(total == null){
+    total = 0.0f;
+  }
+%>
+
   <!DOCTYPE html>
   <html>
     <head>
@@ -11,8 +21,8 @@
       <table>
         <table>
         <tr>
-          <th>Total a pagar</th>
-          <td>0</td>
+          <th>Total a pagar:</th>
+          <td><%= String.format("%.2f", total)%>€</td>
         </tr>
       </table>
 

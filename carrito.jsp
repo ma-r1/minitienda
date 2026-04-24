@@ -8,6 +8,7 @@
   double total = 0.0;
 %>
 
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -55,6 +56,6 @@
     </table>
     <br>
     <a href="./index.html">Sigo comprando</a>
-    <a href="./caja.html">A pagar</a>
+    <a href="/minitienda/ServletCaja">A pagar</a>
   </body>
 </html>
