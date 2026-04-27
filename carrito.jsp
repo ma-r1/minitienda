@@ -1,12 +1,7 @@
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="minitienda.CD"%>
 <%@page session="true"%>
-
-<%
-  ArrayList<CD> cds = (ArrayList<CD>)session.getAttribute("cds");
-  double total = 0.0;
-%>
+<%@ page isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 
 <!DOCTYPE html>
 <html>
@@ -26,24 +21,22 @@
         </tr>
       </thead>
       <tbody>
-        <%
-          if (cds == null || cds.isEmpty()){ 
-        %>
-          <tr><td colspan=4>El carrito está vacío</td></tr>
-        <%
-          } else {
-            for (int i = 0; i < cds.size(); i++){
-              CD cd = cds.get(i);
-              double valorfila=cd.getCantidad()*cd.getPrecio();
-              total+=valorfila;
-        %>
-          <tr>
-            <td><%=cd.getNombre()%></td>
-            <td><%=cd.getCantidad()%></td>
-            <td><%=String.format("%.2f", valorfila)%> €</td>
-            <td><a href="/minitienda/ServletCarrito?accion=eliminar&indice=<%= i %>">Eliminar</a></td>
-          </tr>
-        <% }} %>
+        <c:set var="vectorCD" value="${sessionScope.cds}"/>
+        <c:choose>
+          <c:when test="${empty vectorCD}">
+            <tr><td colspan=4>El carrito está vacío</td></tr>
+          </c:when>
+          <c:otherwise>
+            <c:forEach items="${vectorCD}" var="CDactual" varStatus="loop">
+              <tr>
+                <td>${CDactual.nombre}</td>
+                <td>${CDactual.cantidad}</td>
+                <td>${CDactual.cantidad*CDactual.precio}</td>
+                <td><a href="${pageContext.request.contextPath}/ServletCarrito?accion=eliminar&indice=${loop.index}">Eliminar</a></td>
+              </tr>
+            </c:forEach>
+          </c:otherwise>
+        </c:choose>
       </tbody>
     </table>
 
@@ -51,11 +44,11 @@
     <table>
       <tr>
         <td><b>Importe total: </b></td>
-        <td><b><%= String.format("%.2f", total) %> €</b></td>
+        <td><b>${total}€</b></td>
       </tr>
     </table>
     <br>
     <a href="./index.html">Sigo comprando</a>
-    <a href="/minitienda/ServletCaja">A pagar</a>
+    <a href="${pageContext.request.contextPath}/ServletCaja">A pagar</a>
   </body>
 </html>

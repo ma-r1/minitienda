@@ -12,10 +12,8 @@ public class ServletCaja extends HttpServlet {
     String accion = request.getParameter("accion");
     HttpSession session = request.getSession();
     if("finalizar".equals(accion)){
-      session.removeAttribute("cds");
-      session.removeAttribute("total");
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/index.html");
-      dispatcher.forward(request, response);
+      session.invalidate();
+      response.sendRedirect("index.html");
     }
     else {
       RequestDispatcher dispatcher = request.getRequestDispatcher("/caja.jsp");
