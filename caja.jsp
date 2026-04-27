@@ -26,6 +26,6 @@
         </tr>
       </table>
 
-      <a href="./index.html">Pagar y volver a la página principal</a>
+      <a href="ServletCaja?accion=finalizar">Pagar y volver a la página principal</a>
     </body>
 </html>
