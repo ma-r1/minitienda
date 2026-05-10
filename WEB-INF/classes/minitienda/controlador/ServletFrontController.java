@@ -6,8 +6,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import minitienda.modelo.dao.BDConexion;
+
 
 public class ServletFrontController extends HttpServlet{
+
+  public void init() throws ServletException {
+    String url = getServletContext().getInitParameter("db.url");
+    String usuario = getServletContext().getInitParameter("db.usuario");
+    String clave = getServletContext().getInitParameter("db.clave");
+    BDConexion.configurar(url, usuario, clave);
+  }
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String accion = request.getParameter("accion");
@@ -22,9 +31,14 @@ public class ServletFrontController extends HttpServlet{
     } else if ("mostrarcaja".equals(accion)) {
       helper = new HelperMostrarCaja();
     } else if ("pagar".equals(accion)) {
-      helper = new HelperPagar();
-    }  else {
-      helper = new HelperAnadirCD();
+      helper = new HelperMostrarLogin();
+    } else if ("login".equals(accion)) {
+      helper = new HelperLogin();
+    } else if ("registrar".equals(accion)) {
+      helper = new HelperRegistrar();
+    } 
+    else {
+      helper = new HelperMostrarCarrito();
     }
 
     String vista = null;

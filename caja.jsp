@@ -21,6 +21,6 @@
         </tr>
       </table>
 
-      <a href="${pageContext.request.contextPath}/ServletFrontController?accion=pagar">Pagar y volver a la página principal</a>
+      <a href="${pageContext.request.contextPath}/ServletFrontController?accion=pagar">Identificarse</a>
     </body>
 </html>

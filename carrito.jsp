@@ -44,7 +44,7 @@
     <table>
       <tr>
         <td><b>Importe total: </b></td>
-        <td><b>${(sesionScope.total == 0) ? sessionScope.total : 0}€</b></td>
+        <td><b>${(sessionScope.total == null) ? 0 : sessionScope.total}€</b></td>
       </tr>
     </table>
     <br>
