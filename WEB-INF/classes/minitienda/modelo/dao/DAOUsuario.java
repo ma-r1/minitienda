@@ -18,7 +18,7 @@ public class DAOUsuario {
 
       int filas = ps.executeUpdate();
       return filas > 0;
-    } catch (SQLException e) {System.out.println("Error al registrar usuario."); return false;}
+    } catch (SQLException e) {System.out.println("Error al registrar usuario."); e.printStackTrace(); return false;}
   }
 
   public boolean validarUsuario(String correo, String password){
@@ -30,6 +30,6 @@ public class DAOUsuario {
       ps.setString(2, password);
       ResultSet rs = ps.executeQuery();
       return rs.next();
-    } catch (SQLException e){System.out.println("Error al validar usuario."); return false;}
+    } catch (SQLException e){System.out.println("Error al validar usuario."); e.printStackTrace(); return false;}
   }
 }

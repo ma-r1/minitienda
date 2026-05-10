@@ -18,7 +18,7 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
   
   <context-param>
     <param-name>db.clave</param-name>
-    <param-value>MinitiendaWinkx</param-value>
+    <param-value>password</param-value>
   </context-param>
 
   <servlet>
