@@ -32,7 +32,7 @@
                 <td>${CDactual.nombre}</td>
                 <td>${CDactual.cantidad}</td>
                 <td>${CDactual.cantidad*CDactual.precio}</td>
-                <td><a href="${pageContext.request.contextPath}/ServletFrontController=eliminar&indice=${loop.index}">Eliminar</a></td>
+                <td><a href="${pageContext.request.contextPath}/ServletFrontController?accion=eliminarcd&indice=${loop.index}">Eliminar</a></td>
               </tr>
             </c:forEach>
           </c:otherwise>
@@ -44,7 +44,7 @@
     <table>
       <tr>
         <td><b>Importe total: </b></td>
-        <td><b>${total}€</b></td>
+        <td><b>${(sesionScope.total == 0) ? sessionScope.total : 0}€</b></td>
       </tr>
     </table>
     <br>

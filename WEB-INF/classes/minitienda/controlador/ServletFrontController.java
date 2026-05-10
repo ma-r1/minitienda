@@ -13,11 +13,11 @@ public class ServletFrontController extends HttpServlet{
     String accion = request.getParameter("accion");
     Helper helper = null;
 
-    if ("añadir".equals(accion)){
+    if ("anadircd".equals(accion)){
       helper = new HelperAnadirCD();
     } else if ("mostrarcarrito".equals(accion)){
       helper = new HelperMostrarCarrito();
-    } else if ("eliminar".equals(accion)){
+    } else if ("eliminarcd".equals(accion)){
       helper = new HelperEliminarCD();
     } else if ("mostrarcaja".equals(accion)) {
       helper = new HelperMostrarCaja();
