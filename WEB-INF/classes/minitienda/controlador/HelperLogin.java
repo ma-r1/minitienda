@@ -4,21 +4,51 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import minitienda.modelo.Usuario;
+import minitienda.modelo.Pedido;
 import minitienda.modelo.dao.DAOUsuario;
+import minitienda.modelo.dao.DAOPedido;
 
-public class HelperLogin implements Helper{
+public class HelperLogin implements Helper {
   @Override
-  public String ejecutar(HttpServletRequest request, HttpServletResponse response) throws Exception{
+  public String ejecutar(HttpServletRequest request, HttpServletResponse response) throws Exception {
     String email = request.getParameter("email");
     String password = request.getParameter("password");
 
-    DAOUsuario dao = new DAOUsuario();
+    DAOUsuario daoUsuario = new DAOUsuario();
 
-    if (dao.validarUsuario(email, password)){
+    if (daoUsuario.validarUsuario(email, password)) {
       HttpSession session = request.getSession();
-      session.invalidate();
-      return "redirect:index.html";
-    } else return "/login.jsp";
+
+      Object totalObj = session.getAttribute("total");
+      float total = 0.0f;
+
+      if (totalObj instanceof Number) {
+        total = ((Number) totalObj).floatValue();
+      }
+
+      if (total <= 0) {
+        return "/carrito.jsp";
+      }
+
+      DAOPedido daoPedido = new DAOPedido();
+      int idPedido = daoPedido.guardarPedido(email, total);
+
+      if (idPedido == -1) {
+        request.setAttribute("error", "No se pudo guardar el pedido.");
+        return "/login.jsp";
+      }
+
+      Pedido pedido = new Pedido(idPedido, email, total);
+
+      request.setAttribute("pedido", pedido);
+
+      session.removeAttribute("carrito");
+      session.setAttribute("total", 0.0f);
+
+      return "/confirmacion.jsp";
+    } else {
+      request.setAttribute("error", "Correo o contraseña incorrectos.");
+      return "/login.jsp";
+    }
   }
 }
