@@ -14,7 +14,6 @@
       <h1>Caja</h1>
       
       <table>
-        <table>
         <tr>
           <th>Total a pagar:</th>
           <td>${sessionScope.total}€</td>

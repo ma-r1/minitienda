@@ -27,7 +27,9 @@ public class HelperLogin implements Helper {
       }
 
       if (total <= 0) {
-        return "/carrito.jsp";
+        // request.setAttribute("error", "Ha habido un error");
+
+        return "/index.html";
       }
 
       DAOPedido daoPedido = new DAOPedido();

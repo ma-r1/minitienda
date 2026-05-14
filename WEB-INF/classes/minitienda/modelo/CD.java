@@ -20,7 +20,7 @@ public class CD implements Serializable{
   public void setPrecio(float precio) {this.precio = precio;}
   public void setCantidad(int cantidad) {this.cantidad = cantidad;}
   
-  public void calcularPrecio(){
+  public boolean calcularPrecio(){
     String preciostr;
     StringTokenizer t = new StringTokenizer(this.nombre,"|");
     t.nextToken();
@@ -28,6 +28,14 @@ public class CD implements Serializable{
     t.nextToken();
     preciostr = t.nextToken();
     preciostr = preciostr.replace('$',' ').trim();
-    this.precio = Float.parseFloat(preciostr);
+    if(this.precio > 0){
+      // aquí se debería también comprobar si correspondiese el precio con una
+      // entrada de la base de datos
+      this.precio = Float.parseFloat(preciostr);
+      return true;
+    } else {
+      // caso precio menor o igual a 0 
+      return false;
+    }
   }
 }

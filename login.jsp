@@ -12,7 +12,7 @@
   <body bgcolor="#FDF5E6">
     <h1>Identificación del usuario</h1>
     <c:if test="${not empty error}">
- º    <p style="color:red;"><b>${error}</b></p>
+    <p style="color:red;"><b>${error}</b></p>
     </c:if>
     <p>Para finalizar su pedido de <b>${sessionScope.total}€</b>, identifíquese o regístrese.</p>
 

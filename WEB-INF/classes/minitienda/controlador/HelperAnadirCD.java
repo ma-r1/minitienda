@@ -1,6 +1,7 @@
 package minitienda.controlador;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,12 +24,33 @@ public class HelperAnadirCD implements Helper{
     if (nombrecd != null && !nombrecd.trim().isEmpty() && cantidadString != null){
       try {
         int cantidad = Integer.parseInt(cantidadString);
+        float precio = 0;
         if (cantidad > 0)  {
           CD nuevocd = new CD(nombrecd, cantidad);
-          nuevocd.calcularPrecio();
-          carrito.add(nuevocd);
+
+          String preciostr;
+          StringTokenizer t = new StringTokenizer(nombrecd,"|");
+          t.nextToken(); t.nextToken(); t.nextToken();
+          preciostr = t.nextToken();
+          preciostr = preciostr.replace('$',' ').trim();
+          precio = Float.parseFloat(preciostr);          
+          
+            if(nuevocd.calcularPrecio()){
+                carrito.add(nuevocd);
+            }else{
+              System.out.println("Error de precio");
+              return "/index.html";
+            }
+
         } 
-      } catch (NumberFormatException e) {System.out.println("La cantidad debe ser un número.");}
+      } catch (NumberFormatException e) {
+        System.out.println("La cantidad debe ser un número.");
+        return "/index.html";
+      }
+    }else {
+      System.out.println("Error con los datos del producto");
+      return "/index.html";
+    
     }
 
     float total = 0.0f;
