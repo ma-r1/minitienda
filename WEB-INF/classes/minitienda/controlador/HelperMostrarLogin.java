@@ -10,6 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 public class HelperMostrarLogin implements Helper {
   @Override
   public String ejecutar(HttpServletRequest request, HttpServletResponse response) throws Exception{
-    return "/login.jsp";
+    return "/vista/login.jsp";
   }
 }

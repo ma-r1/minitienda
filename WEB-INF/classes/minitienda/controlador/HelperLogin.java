@@ -47,7 +47,7 @@ public class HelperLogin implements Helper {
       // Si el proceso de guardar el pedido falla se devuelve a la pantalla de login
       if (idPedido == -1) {
         request.setAttribute("error", "No se pudo guardar el pedido.");
-        return "/login.jsp";
+        return "/vista/login.jsp";
       }
 
       // Creamos una nueva instancia de pedido 
@@ -60,11 +60,11 @@ public class HelperLogin implements Helper {
       session.removeAttribute("carrito");
       session.setAttribute("total", 0.0f);
 
-      return "/confirmacion.jsp";
+      return "/vista/confirmacion.jsp";
     } else {
       // Si al inicar sesión los datos son incorrectos se devuelve al usuario al formulario de login de nuevo
       request.setAttribute("error", "Correo o contraseña incorrectos.");
-      return "/login.jsp";
+      return "/vista/login.jsp";
     }
   }
 }

@@ -30,6 +30,6 @@ public class HelperMostrarCaja implements Helper {
       total += cd.getCantidad() * cd.getPrecio();
     }
     session.setAttribute("total", total);
-    return "/caja.jsp";
+    return "/vista/caja.jsp";
   }
 }

@@ -43,7 +43,7 @@ public class HelperRegistrar implements Helper {
       // Si el importe total es menor o igual a 0 devolvemos a la página del carrito al usuario
       // ya que es de asumir que el error tiene relación con los precios no con el registro en si 
       if (total <= 0) {
-        return "/carrito.jsp";
+        return "/vista/carrito.jsp";
       }
 
       // Instanciamos un dao de la tabla pedidos para registrar el nuevo pedido
@@ -54,7 +54,7 @@ public class HelperRegistrar implements Helper {
       // Si es -1 ha habido un error y se devuelve al usuario a la página de login, registrando el usuario pero notificando que el pedido no se pudo completar
       if (idPedido == -1) {
         request.setAttribute("error", "Usuario registrado, pero no se pudo guardar el pedido.");
-        return "/login.jsp";
+        return "/vista/login.jsp";
       }
 
       // Instanciamos y almacenamos un nuevo pedido para poder almacenarlo para la redirección a confirmacion.jsp
@@ -66,11 +66,11 @@ public class HelperRegistrar implements Helper {
       session.removeAttribute("carrito");
       session.setAttribute("total", 0.0f);
 
-      return "/confirmacion.jsp";
+      return "/vista/confirmacion.jsp";
     } else {
       // Si al inicar sesión los datos son incorrectos se devuelve al usuario al formulario de login de nuevo
       request.setAttribute("error", "No se pudo registrar el usuario.");
-      return "/login.jsp";
+      return "/vista/login.jsp";
     }
   }
 }
