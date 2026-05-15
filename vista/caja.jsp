@@ -3,7 +3,7 @@
 <%@page isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 
-<!-- Archivo para mostrar el importe total calculado final al usuario y darle paso a la "pasarela de pago"-->
+<!--Archivo para mostrar el importe total calculado final al usuario y darle paso a la "pasarela de pago"-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css">
   </head>
 
-  <!-- Representamos el importe total, almacenado en la variable de sesión "total"  -->
+  <!--Representamos el importe total, almacenado en la variable de sesión "total"-->
   <body bgcolor="#FDF5E6">
     <h1>Caja</h1>
     <table>
@@ -22,7 +22,7 @@
       </tr>
     </table>
 
-    <!-- Paso a la "pasarela de pago" donde el usuario se puede identificar para completar su pedido -->
+    <!--Paso a la "pasarela de pago" donde el usuario se puede identificar para completar su pedido-->
     <a href="${pageContext.request.contextPath}/ServletFrontController?accion=pagar">Identificarse</a>
   </body>
 </html>

@@ -7,20 +7,20 @@ import java.util.StringTokenizer;
  * enviar los datos a través de solicitudes sin problema
  */
 public class CD implements Serializable{
-  private String nombre; // String completo separado por delimitadores "|" que contiene toda la información del disco 
-  private String titulo; // Título del CD
-  private String autor; // Autor del CD
-  private String pais; // País de origen del CD
+  private String nombre; //String completo separado por delimitadores "|" que contiene toda la información del disco 
+  private String titulo; //Título del CD
+  private String autor; //Autor del CD
+  private String pais; //País de origen del CD
 
-  private float precio; // Precio del CD
-  private int cantidad; // Cantidad de CDs(utilizado para los pedidos)
+  private float precio; //Precio del CD
+  private int cantidad; //Cantidad de CDs(utilizado para los pedidos)
 
   public CD(String nombre, int cantidad){
     this.nombre=nombre;
     this.cantidad=cantidad;
   }
 
-  // Getters
+  //Getters
   public String getNombre() {return this.nombre;}
   public float getPrecio() {return this.precio;}
   public int getCantidad() {return this.cantidad;}
@@ -28,7 +28,7 @@ public class CD implements Serializable{
   public String getAutor() {return this.autor;}
   public String getPais() {return this.pais;}
 
-  // Setters
+  //Setters
   public void setNombre(String nombre) {this.nombre = nombre;}
   public void setPrecio(float precio) {this.precio = precio;}
   public void setCantidad(int cantidad) {this.cantidad = cantidad;}
@@ -53,8 +53,6 @@ public class CD implements Serializable{
     this.precio = Float.parseFloat(preciostr);
 
     if(this.precio > 0){
-      // aquí se debería también comprobar si correspondiese el precio con una
-      // entrada de la base de datos
       return true;
     } else {
       // caso precio menor o igual a 0 

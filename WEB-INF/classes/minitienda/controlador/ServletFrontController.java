@@ -62,31 +62,31 @@ public class ServletFrontController extends HttpServlet {
     Helper helper = null;
 
     if ("anadircd".equals(accion)) {
-      // Funcionalidad 1 
+      //Funcionalidad 1 
       helper = new HelperAnadirCD();
       
     } else if ("mostrarcarrito".equals(accion)) {
-      // Funcionalidad 2 
+      //Funcionalidad 2 
       helper = new HelperMostrarCarrito();
 
     } else if ("eliminarcd".equals(accion)) {
-      // Funcionalidad 4 
+      //Funcionalidad 4 
       helper = new HelperEliminarCD();
 
     } else if ("mostrarcaja".equals(accion)) {
-      // Funcionalidad 3 
+      //Funcionalidad 3 
       helper = new HelperMostrarCaja();
 
     } else if ("pagar".equals(accion)) {
-      // Funcionalidad 6
+      //Funcionalidad 6
       helper = new HelperMostrarLogin();
 
     } else if ("login".equals(accion)) {
-      // Funcionalidades 5,6,7,8
+      //Funcionalidades 5,6,7,8
       helper = new HelperLogin();
 
     } else if ("registrar".equals(accion)) {
-      // Funcionalidades 5,6,7,8
+      //Funcionalidades 5,6,7,8
       helper = new HelperRegistrar();
 
     } else {
@@ -94,7 +94,7 @@ public class ServletFrontController extends HttpServlet {
     }
 
 
-    // Realizamos la ejecución del helper correspondiente y almacenamos el resultado que devuelve(la vista)
+    //Realizamos la ejecución del helper correspondiente y almacenamos el resultado que devuelve(la vista)
     String vista = null;
     try {
       vista = helper.ejecutar(request, response);
@@ -102,8 +102,8 @@ public class ServletFrontController extends HttpServlet {
       e.printStackTrace();
     }
 
-    // Procesamos la "vista" devuelta, decidiendo si realizar un redirect o forward
-    // Distinguiendo como responde el navegador según lo solicitado por el helper que haya actuado
+    //Procesamos la "vista" devuelta, decidiendo si realizar un redirect o forward
+    //Distinguiendo como responde el navegador según lo solicitado por el helper que haya actuado
     if (vista != null) {
       if (vista.startsWith("redirect:")) {
         response.sendRedirect(vista.substring(9));

@@ -25,9 +25,9 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Establecemos una variable vectorCD que proviene del atributo de sesión carrito -->
-        <!-- Se comprueba si el carrito está vacío y en ese se renderiza un aviso de ello -->
-        <!-- En caso de que esté vacío cargamos los valores iterando sobre cada CD en el carrito -->
+        <!--Establecemos una variable vectorCD que proviene del atributo de sesión carrito-->
+        <!--Se comprueba si el carrito está vacío y en ese se renderiza un aviso de ello-->
+        <!--En caso de que esté vacío cargamos los valores iterando sobre cada CD en el carrito-->
 
         <c:set var="vectorCD" value="${sessionScope.carrito}"/>
         <c:choose>
@@ -52,7 +52,7 @@
     </table>
 
     <br>
-    <!-- Renderizamos en una tabla el importe total calculado previamente y almacenado en el atributo de sesión "total" -->
+    <!--Renderizamos en una tabla el importe total calculado previamente y almacenado en el atributo de sesión "total"-->
     <table>
       <tr>
         <td><b>Importe total: </b></td>
@@ -63,8 +63,8 @@
     <a href="./index.html">Sigo comprando</a>
     <br>
     <br>
-    <!-- Hacemos una comprobación de que el carrito no esté vacío para mostrar el botón -->
-    <!-- Igualmente si se enviase la solicitud de una compra menor o igual a 0$ se redirige a index en lugar de procesarla -->
+    <!--Hacemos una comprobación de que el carrito no esté vacío para mostrar el botón-->
+    <!--Igualmente si se enviase la solicitud de una compra menor o igual a 0$ se redirige a index en lugar de procesarla-->
     <c:if test="${sessionScope.total > 0}">
       <a href="${pageContext.request.contextPath}/ServletFrontController?accion=mostrarcaja">A pagar</a>
     </c:if>

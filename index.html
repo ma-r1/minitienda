@@ -18,7 +18,7 @@
           />
         </th>
         <th>
-          <font face="Times New Roman,Times" size="+3">Música para DAA</font>
+          <font face="Times New Roman,Times" size="+3">Música para DAW</font>
         </th>
         <th>
           <img
@@ -32,11 +32,11 @@
     </table>
 
     <hr />
-    <!-- Formularios para enviar la selección de CD al Servlet controlador a través de solicitudes post
-        los parámetros viajan a través de la solicitud  -->
+    <!--Formularios para enviar la selección de CD al Servlet controlador a través de solicitudes post
+        los parámetros viajan a través de la solicitud -->
     <form method="post" action="ServletFrontController">
       <b>CD:</b>
-      <!-- Dropdown con selección de las entradas de los discos hardcodeados -->
+      <!--Dropdown con selección de las entradas de los discos hardcodeados-->
       <select name="nombre">
         <option value="Yuan | The Guo Brothers | China | $14.95">
           Yuan — The Guo Brothers · China · $14.95
@@ -70,10 +70,10 @@
         </option>
       </select>
       <b>Cantidad:</b>
-      <!-- Input para la cantidad de CDs que se seleccionan -->
+      <!--Input para la cantidad de CDs que se seleccionan-->
       <input type="text" name="cantidad" value="1" />
       <input type="submit" value="Seleccionar" />
-      <!--Input oculto para enviar el tipo de acción  -->
+      <!--Input oculto para enviar el tipo de acción-->
       <input type="hidden" name="accion" value="anadircd" />
     </form>
     <a href="ServletFrontController?accion=mostrarcarrito">Ir al carrito</a>

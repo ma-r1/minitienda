@@ -8,9 +8,9 @@ import java.io.Serializable;
  * 
 */
 public class Pedido implements Serializable {
-    private int id; // ID del pedido
-    private String correoUsuario; // correo del usuario que realizó el pedido
-    private float importe; // importe total del pedido
+    private int id; //ID del pedido
+    private String correoUsuario; //correo del usuario que realizó el pedido
+    private float importe; //importe total del pedido
 
     public Pedido(){}
 
@@ -20,7 +20,7 @@ public class Pedido implements Serializable {
         this.importe = importe;
     }
 
-    // Getters
+    //Getters
     public int getId() {
         return id;
     }
@@ -33,7 +33,7 @@ public class Pedido implements Serializable {
         return importe;
     }
 
-    // Setters
+    //Setters
     public void setId(int id) {
         this.id = id;
     }
