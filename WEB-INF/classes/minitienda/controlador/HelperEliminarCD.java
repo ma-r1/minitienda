@@ -34,23 +34,23 @@ public class HelperEliminarCD implements Helper {
             carrito.remove(indice);
           } else {
             System.out.println("Índice de eliminación inválido.");
-            return "/index.html";
+            return "redirect:index.html";
           }
         } catch (NumberFormatException e) {
           // Si el indice no existe solicitud no permitida, devolvemos index.html
           System.out.println("Índice de eliminación inválido(formato de número no válido)");
-          return "/index.html";
+          return "redirect:index.html";
         }
       } else {
         // Si el indice no existe solicitud no permitida, devolvemos index.html
         System.out.println("Índice de eliminación inexistente");
-        return "/index.html";
+        return "redirect:index.html";
       }
     } else {
       // Devolvemos al usuario index.html en caso de que haya una solicitud incoherente
       // (eliminar teniendo el carrito vacío)
       System.out.println("Solicitud de eliminación con carrito vacío");
-      return "/index.html";
+      return "redirect:index.html";
     }
 
 

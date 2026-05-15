@@ -37,7 +37,7 @@ public class HelperLogin implements Helper {
       // Si el importe total es menor o igual a 0 devolvemos a la página principal
       if (total <= 0) {
         System.out.println("Error, importe total de 0");
-        return "/index.html";
+        return "redirect:index.html";
       }
 
       // Instanciamos un dao del pedido que se está tramitando para comunicarnos con la base de datos

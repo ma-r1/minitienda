@@ -50,6 +50,7 @@ public class CD implements Serializable{
 
     preciostr = t.nextToken();
     preciostr = preciostr.replace('$',' ').trim();
+    this.precio = Float.parseFloat(preciostr);
 
     if(this.precio > 0){
       // aquí se debería también comprobar si correspondiese el precio con una
