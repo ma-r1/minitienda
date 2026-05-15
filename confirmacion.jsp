@@ -3,11 +3,13 @@
 <%@page isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 
+<!--  JSP para renderizar el ticket después de una compra exitosa -->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>Compra confirmada</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css">
   </head>
 
   <body bgcolor="#FDF5E6">
@@ -15,6 +17,7 @@
 
     <p>Pedido registrado correctamente</p>
 
+    <!-- Recibe y utiliza el objeto pedido como atributo de la solicitud y lo muestra en una tabla resumen con sus datos correspondientes -->
     <table border="1">
       <tr>
         <th>Número de pedido</th>
@@ -31,7 +34,7 @@
     </table>
 
     <br>
-
+    <!-- Enlace para regresar al inicio y comenzar una nueva compra -->
     <a href="index.html">Volver a la página principal</a>
   </body>
 </html>

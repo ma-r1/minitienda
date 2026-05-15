@@ -6,8 +6,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ *  Clase que actúa como comunicación para la tabla pedidos de la base de datos
+ */
 public class DAOPedido {
 
+    /**
+     * Función para insertar en la tabla pedidos una nueva entrada de pedido
+     * 
+     * @param correoUsuario Parámetro correspondiente al correo del usuario que está tramitando el pedido
+     * @param importe Importe total del pedido en trámite
+     * @return Se devuelve el ID generado del pedido, devolviendo -1 en caso de que algo haya fallado
+     */
     public int guardarPedido(String correoUsuario, float importe) {
         String sql = "INSERT INTO pedidos (correo_usuario, importe) VALUES (?, ?)";
         Connection con = null;

@@ -2,13 +2,17 @@ package minitienda.modelo;
 
 import java.io.Serializable;
 
+/**
+ *  Esta clase se utiliza para modelar los datos de un pedido, es serializable para poder enviar los datos
+ *  a través de las peticiones
+ * 
+*/
 public class Pedido implements Serializable {
-    private int id;
-    private String correoUsuario;
-    private float importe;
+    private int id; // ID del pedido
+    private String correoUsuario; // correo del usuario que realizó el pedido
+    private float importe; // importe total del pedido
 
-    public Pedido() {
-    }
+    public Pedido(){}
 
     public Pedido(int id, String correoUsuario, float importe) {
         this.id = id;
@@ -16,6 +20,7 @@ public class Pedido implements Serializable {
         this.importe = importe;
     }
 
+    // Getters
     public int getId() {
         return id;
     }
@@ -28,6 +33,7 @@ public class Pedido implements Serializable {
         return importe;
     }
 
+    // Setters
     public void setId(int id) {
         this.id = id;
     }

@@ -30,5 +30,5 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
     <servlet-name>ServletFrontController</servlet-name>
     <url-pattern>/ServletFrontController</url-pattern>
   </servlet-mapping>
-
+<!--  -->
 </web-app>

@@ -1,0 +1,65 @@
+html {
+    background: url('../imgs/background.avif');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 35px;
+    text-align: center;
+}
+
+body {
+    width: 90%;
+    border-radius: 4px;
+    background-color: white;
+    margin: auto;
+    padding: 25px;
+    border: 2px solid black;
+    min-height: 50vh;
+}
+
+body * {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
+}
+form * {
+    margin: 5px;
+}
+table {
+    margin: auto;
+}
+
+a {
+    margin: 15px;
+    padding: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(41, 86, 103);
+    text-decoration-style: solid;
+    font-weight: 500;
+    font-size: large;
+}
+a::before{
+    content: "[ ";
+}
+a::after{
+    content: " ]";
+}
+
+.tabla-carrito {
+    padding: 5px;
+    gap: 15px;
+    border-radius: 25px;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+    margin: 15px;
+    padding: 12px;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
